@@ -4,7 +4,6 @@
   "repository": "https://github.com/gluio/addon-provider",
   "logo": "http://getglu.io/images/addon-in-a-box.png",
   "keywords": ["heroku", "add-on", "addon", "cloud service", "business", "marketing"],
-  "addons": [""],
   "env": {
     "ADDON_NAME": {
       "description": "The full name of your add-on service, e.g., 'Cloud Widget'.",
