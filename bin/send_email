@@ -1,0 +1,16 @@
+#!/usr/bin/env ruby
+require_relative "../environment"
+require 'titleize'
+
+content = ""
+subject = ARGV[0].sub(/\A\d+\-/, "").sub(/\.md\z/, "").titleize.sub(/\AAction Required/, "[ACTION REQUIRED]")
+filename = File.expand_path(File.dirname(__FILE__) + "/../emails/" + ARGV[0])
+File.open(filename, "r") do |f|
+  content = f.read
+end
+
+if account_id = ARGV[1]
+  Email.send(account_id, subject, content)
+else
+  Email.test(subject, content)
+end

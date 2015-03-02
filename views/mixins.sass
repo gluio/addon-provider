@@ -1,0 +1,91 @@
+.group:after
+  content: "."
+  display: block
+  height: 0
+  clear: both
+  visibility: hidden
+
+// Pick font sizes from this typographic scale:
+//
+// For general typesetting, pick from this scale:
+//
+//   24, 21, 18, 14, 12 (the base size), 11, and 10.
+//
+// http://www.markboulton.co.uk/journal/comments/five-simple-steps-to-better-typography-part-4
+
+@function calculateRem($size)
+  @return ($size / 12) * 1rem
+
+=font-size($size)
+  font-size: $size + px
+  font-size: calculateRem($size)
+
+=sans
+  font-family: 'Arial', 'Helvetica Neue', sans-serif
+
+=serif
+  font-family: 'Lora', 'Georgia', serif
+
+// Layout
+
+=top-level-block
+  width: 90%
+  margin: 0 auto
+
+  +respond-to(medium-screens)
+    max-width: 780px
+
+=respond-to($media)
+  @if $media == medium-screens
+    @media only screen and (min-width: $max-medium-screen-width)
+      @content
+
+// CSS3 effects
+
+=border-radius($radius)
+  -webkit-border-radius: $radius
+  -moz-border-radius: $radius
+  border-radius: $radius
+
+=box-shadow($shadow1, $shadow2: "")
+  $definition: $shadow1
+  @if $shadow2 != ""
+    $definition: $shadow1, $shadow2
+  -webkit-box-shadow: $definition
+  -moz-box-shadow: $definition
+  box-shadow: $definition
+
+=text-shadow($horizontal, $vertical, $blur, $color)
+  -webkit-text-shadow: $horizontal $vertical $blur $color
+  -moz-text-shadow: $horizontal $vertical $blur $color
+  text-shadow: $horizontal $vertical $blur $color
+
+=vertical-gradient($start, $end, $fallback: $end)
+  background-color: $fallback
+  background-image: -webkit-gradient(linear, left top, left bottom, from($start), to($end))
+  background-image: -moz-linear-gradient(top, $start, $end)
+  background-image: linear-gradient(top, $start, $end)
+
+=experimental($property, $value, $moz: true, $o: true, $webkit: true)
+  @if $moz
+    -moz-#{$property}: $value
+  @if $o
+    -o-#{$property}: $value
+  @if $webkit
+    -webkit-#{$property}: $value
+  #{$property}: $value
+
+=transform($definition)
+  +experimental(transform, $definition)
+
+=transition($definition)
+  +experimental(transition, $definition)
+
+// Reusable code
+=down-arrow($size, $colour)
+  width: 0
+  height: 0
+
+  border-left: $size solid transparent
+  border-right: $size solid transparent
+  border-top: $size solid $colour

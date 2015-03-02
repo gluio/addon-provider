@@ -1,0 +1,8 @@
+#!/usr/bin/env ruby
+require "irb"
+require "irb/completion"
+def reload!
+  require_relative "../environment"
+end
+reload!
+IRB.start

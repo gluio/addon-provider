@@ -1,0 +1,11 @@
+%ul.accordion-tabs
+  - { "Overview" => overview_path, "Do a thing" => demo_path }.each do |title, url|
+    - if active_tab == title
+      %li.tab-header-and-content
+        %a.tab-link.is-active(href=url)= title
+        .tab-content(style="display: block")
+          = content
+    - else
+      %li.tab-header-and-content
+        %a.tab-link(href=url)= title
+

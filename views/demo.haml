@@ -1,0 +1,14 @@
+- if @account.feature_flag?("do-a-thing")
+  %h1 Do a thing
+  %p
+    This is where you'd come to do that thing.
+- else
+  %p
+    - if min_plan = feature_available_on("do-a-thing")
+      Upgrade to a
+      %a(href="https://addons.heroku.com/#{addon_config[:id]}?app=#{@app_name}##{min_plan.slug}")= min_plan.name
+      or higher plan to do a thing.
+    - else
+      You need to
+      %a(href="https://addons.heroku.com/#{addon_config[:id]}?app=#{@app_name}") upgrade
+      to a higher plan to do a thing.

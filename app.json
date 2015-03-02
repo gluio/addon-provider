@@ -1,0 +1,8 @@
+{
+  "name": "Add-on Service in a box",
+  "description": "Bootstrap a new cloud service in seconds, with all of the ops and marketing best practices baked in.",
+  "repository": "https://github.com/gluio/addon-provider",
+  "logo": "http://getglu.io/images/addon-in-a-box.png",
+  "keywords": ["heroku", "add-on", "addon", "cloud service", "business", "marketing"],
+  "addons": [""]
+}

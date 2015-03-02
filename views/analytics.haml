@@ -1,0 +1,7 @@
+- if @account
+  :javascript
+    analytics.identify("#{@account.uuid}", {
+      email: "#{@email}",
+      createdAt: #{@account.created_at.to_i},
+      #{addon_config[:id]}: true
+    });

@@ -1,0 +1,11 @@
+#!/usr/bin/env ruby
+require_relative '../environment'
+require 'models/account'
+
+plan = Plan.find_or_create(slug: "test") do |pl|
+  pl.name = "Test"
+  pl.price_cents = 0
+  pl.feature_limit = 0
+end
+json = { heroku_uuid: "app123@heroku.com", plan: plan.slug }.to_json
+Account.provision_from_json!(json)
