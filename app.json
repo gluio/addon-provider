@@ -35,23 +35,23 @@
       "value": ""
     },
     "DATABASE_ENCRYPT_KEY": {
-      "description": "Used to encrypt secrets within the database."
+      "description": "Used to encrypt secrets within the database.",
       "generator": "secret"
     },
     "ADDON_API_PASSWORD": {
-      "description": "Password used to by Heroku to access the API."
+      "description": "Password used to by Heroku to access the API.",
       "generator": "secret"
     },
     "ADDON_SSO_SALT": {
-      "description": "Shared secret with Heroku for transferring logged in users from Dashboard."
+      "description": "Shared secret with Heroku for transferring logged in users from Dashboard.",
       "generator": "secret"
     },
     "SIDEKIQ_ADMIN_PASSWORD": {
-      "description": "Admin password used to log in to view background worker queue."
+      "description": "Admin password used to log in to view background worker queue.",
       "generator": "secret"
     },
     "SESSION_SECRET": {
-      "description": "Secret used to encrypt user sessions/cookies."
+      "description": "Secret used to encrypt user sessions/cookies.",
       "generator": "secret"
     },
     "RACK_ENV": "production"
