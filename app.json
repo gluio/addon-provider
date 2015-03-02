@@ -4,5 +4,56 @@
   "repository": "https://github.com/gluio/addon-provider",
   "logo": "http://getglu.io/images/addon-in-a-box.png",
   "keywords": ["heroku", "add-on", "addon", "cloud service", "business", "marketing"],
-  "addons": [""]
+  "addons": [""],
+  "env": {
+    "ADDON_NAME": {
+      "description": "The full name of your add-on service, e.g., 'Cloud Widget'.",
+      "value": ""
+    },
+    "ADDON_ID": {
+      "description": "The shorthand version of your add-on name that developers will use on the CLI: https://devcenter.heroku.com/articles/add-on-manifest#fields",
+      "value": ""
+    },
+    "ADDON_CONFIG_VARS": {
+      "description": "A comma separated list of the configuration variables that will be set by your add-on: https://devcenter.heroku.com/articles/add-on-manifest#fields",
+      "value": ""
+    },
+    "ADDON_REGIONS": {
+      "description": "A comma separated list of geographical regions supported by your add-on (e.g., 'us,eu').",
+      "value": "us,eu"
+    },
+    "ADDON_DOMAIN": {
+      "description": "The domain your add-on will be served from, e.g., cloudwidgets.io",
+      "value": ""
+    },
+    "COMPANY_NAME": {
+      "description": "Your registered company or trading name, e.g., Cloud Widgets LLC",
+      "value": ""
+    },
+    "MAILING_ADDRESS": {
+      "description": "Your registered mailing address",
+      "value": ""
+    },
+    "DATABASE_ENCRYPT_KEY": {
+      "description": "Used to encrypt secrets within the database."
+      "generator": "secret"
+    },
+    "ADDON_API_PASSWORD": {
+      "description": "Password used to by Heroku to access the API."
+      "generator": "secret"
+    },
+    "ADDON_SSO_SALT": {
+      "description": "Shared secret with Heroku for transferring logged in users from Dashboard."
+      "generator": "secret"
+    },
+    "SIDEKIQ_ADMIN_PASSWORD": {
+      "description": "Admin password used to log in to view background worker queue."
+      "generator": "secret"
+    },
+    "SESSION_SECRET": {
+      "description": "Secret used to encrypt user sessions/cookies."
+      "generator": "secret"
+    },
+    "RACK_ENV": "production"
+  }
 }
